@@ -1,0 +1,31 @@
+{
+  "name": "mass-text",
+  "version": "1.0.0",
+  "description": "App for mass texting contacts",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node .",
+    "prestart": "npm run build",
+    "dev": "nodemon --exec node --inspect -r ts-node/register src/index.ts"
+  },
+  "author": "Ben Turner",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.2",
+    "@types/mongoose": "^5.5.30",
+    "@types/node": "^12.12.7",
+    "@types/node-fetch": "^2.5.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.9",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
+  }
+}

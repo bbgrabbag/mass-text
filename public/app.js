@@ -1,0 +1,1 @@
+window.addEventListener('hashchange', () => alert(window.location.search))
