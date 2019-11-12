@@ -3,6 +3,6 @@ import path from 'path';
 
 export const htmlRouter = express.Router();
 
-htmlRouter.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', '..', '..', 'public', 'index.html'));
+htmlRouter.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', '..', '..', 'public'));
 });
