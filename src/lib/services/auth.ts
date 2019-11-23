@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import fetch from 'node-fetch';
 import { config } from '../../config';
 
@@ -40,4 +41,9 @@ export const getGoogleUserInfo = async (accessToken: string): Promise<any> => {
     );
     const info = await response.json();
     return info;
+};
+
+export const issueToken = (userID, googleID) => {
+    const payload = { userID, googleID };
+    return jwt.sign(payload, process.env.API_SECRET);
 };

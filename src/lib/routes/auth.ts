@@ -6,8 +6,8 @@ import {
     generateOAuthLink,
     getAccessToken,
     getGoogleUserInfo,
+    issueToken,
 } from '../services';
-import { convertObjectToURLQuery } from '../utils';
 
 export const authRouter = express.Router();
 
@@ -23,5 +23,6 @@ authRouter.route('/callback')
         if (!dbUser) {
             dbUser = await createNewUser({ ...userInfo, googleID: userInfo.id });
         }
-        return res.redirect(`${config.baseURL}/#dashboard/?${convertObjectToURLQuery(dbUser)}`);
+        const apiToken = issueToken(dbUser._id, dbUser.googleID);
+        return res.redirect(`${config.baseURL}/?apiToken=${apiToken}`);
     });

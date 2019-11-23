@@ -1,12 +1,15 @@
 import express from 'express';
-import { config } from './config';
+
 import {
     apiRouter,
-    htmlRouter,
+    handleServerErrors,
+    jsonify,
+    logger,
+    serveStatic,
 } from './lib';
 
 export const server = express();
 
-server.use(...config.loaders);
+server.use(jsonify, logger, serveStatic);
 server.use('/api', apiRouter);
-server.get('*', htmlRouter);
+server.use(handleServerErrors);
