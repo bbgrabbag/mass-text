@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "target": "es5",
+        "target": "es6",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
@@ -10,13 +10,16 @@
             "dom",
             "es2015"
         ],
-        "sourceMap": true
+        "sourceMap": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./typings"
+        ]
     },
-    "compileOnSave": true,
     "exclude": [
         "node_modules/**/*"
     ],
     "include": [
-        "src/**/*"
-    ]
+        "src/**/*.ts",
+    ],
 }

@@ -8,5 +8,6 @@
         "./src"
     ],
     "ext": "ts",
+    "exec": "npm run dev",
     "signal": "SIGTERM"
 }
