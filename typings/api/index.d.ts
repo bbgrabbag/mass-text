@@ -19,3 +19,11 @@ declare interface IMessageConfig {
     messagingServiceSid: string;
     body: string;
 }
+
+declare interface IUser {
+    name: string;
+    serviceID?: string;
+    email: string;
+    googleID: string;
+    picture: string;
+}

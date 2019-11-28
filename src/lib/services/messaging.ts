@@ -9,4 +9,3 @@ export const sendMessage = async (msgConfig: IMessageConfig) => {
         .catch((err) => { throw new Error(err); });
     return message;
 };
-

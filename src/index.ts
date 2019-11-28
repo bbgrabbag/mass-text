@@ -3,6 +3,7 @@ import { config } from './config';
 import { server } from './server';
 
 mongoose.connect(config.dbURI, {
+    useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
