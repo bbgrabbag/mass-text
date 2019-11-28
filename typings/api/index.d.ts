@@ -13,3 +13,9 @@ declare interface IContact {
     name: string;
     user: string;
 }
+
+declare interface IMessageConfig {
+    to: string;
+    messagingServiceSid: string;
+    body: string;
+}

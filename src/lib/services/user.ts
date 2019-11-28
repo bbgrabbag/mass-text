@@ -11,5 +11,5 @@ export const createNewUser = async (credentials) => {
 
 export const findUserByUserId = async (userID: string) => {
     const user = await UserModel.findById(userID);
-    return user;
+    return user.toObject();
 };

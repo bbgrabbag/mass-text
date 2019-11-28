@@ -16,3 +16,5 @@ contactRouter.route('/')
         const contact = await createContact(jsonContact);
         res.status(201).send(contact);
     });
+    // EDIT
+    // DELETE

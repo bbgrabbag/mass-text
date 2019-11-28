@@ -8,8 +8,8 @@ const UserSchema = new mongoose.Schema({
         unique: true,
     },
     name: String,
-    phone: String,
     picture: String,
+    serviceID: String,
 });
 
 export const UserModel = mongoose.model('User', UserSchema);
