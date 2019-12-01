@@ -7,3 +7,4 @@ export * from './App';
 export * from './StyleProvider';
 export * from './RouteProvider';
 export * from './Link';
+export * from './Route';
