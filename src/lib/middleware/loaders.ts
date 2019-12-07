@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import path from 'path';
 
@@ -16,4 +17,12 @@ export const logger = (req, res, next) => {
         TIME: ${time}
     `);
     next();
+};
+
+export const useCors = (req, res, next) => {
+    if (process.env.NODE_ENV === 'development') {
+        return cors();
+    } else {
+        return next();
+    }
 };
