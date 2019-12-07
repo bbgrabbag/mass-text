@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
     App,
+    AuthProvider,
     RouteProvider,
     StyleProvider,
 } from './components';
@@ -10,7 +11,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
     <StyleProvider>
         <RouteProvider>
-            <App />
+            <AuthProvider>
+                <App />
+            </AuthProvider>
         </RouteProvider>
     </StyleProvider>
     , document.getElementById('root'));

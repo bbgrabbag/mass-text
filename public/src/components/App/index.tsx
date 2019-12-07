@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 import { Link, Route } from '../';
-import { useRoute, useRouter } from '../../lib';
+import { useAuth, useRoute, useRouter } from '../../lib';
 
 const Test: React.FC = (props) => {
     const route = useRoute();
@@ -15,17 +15,18 @@ const Test: React.FC = (props) => {
 };
 export const App: React.FC = () => {
     const router = useRouter();
+    const auth = useAuth();
+
+    const [link, setLink] = React.useState('');
+
+    // React.useEffect(() => {
+    //     auth.client.get<{ link: string }>('/api/auth/link')
+    //         .then((res) => res.json())
+    //         .then((data) => setLink(data.link));
+    // });
     return (
         <div className='App'>
-            {JSON.stringify(router.route)}
-            <Link to={{ path: '/' }}>base</Link>
-            <Link to={{ path: '/#contacts?foo=bar' }}>test</Link>
-            <Link to={{ path: '/#contacts/qxi76fefi7q34f' }}>test</Link>
-
-            <Route path='/' render={Test} />
-            <Route path='/#contacts' render={Test} />
-            <Route path='/#contacts/:id' render={Test} />
-
+            {link && <a href={link}>google sign in</a>}
         </div>
     );
 };
