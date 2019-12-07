@@ -24,5 +24,5 @@ authRouter.route('/callback')
             dbUser = await createNewUser({ ...userInfo, googleID: userInfo.id });
         }
         const apiToken = issueToken(dbUser._id, dbUser.googleID);
-        return res.redirect(`${config.baseURL}/?apiToken=${apiToken}`);
+        return res.redirect(`${config.redirectURL()}/?apiToken=${apiToken}`);
     });

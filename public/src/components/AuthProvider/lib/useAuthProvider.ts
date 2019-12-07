@@ -5,13 +5,15 @@ export const useAuthProvider = (): Auth.ContextValue => {
     const getToken: Auth.GetToken = () => localStorage.getItem('bearer-token');
     const setAuthHeader: XHR.Middleware = (config) => {
         config.headers = new Headers();
-        config.headers.set('Authorization', getToken() || '');
+        config.headers.set('Authorization', `Bearer ${getToken()}`);
         return config;
     };
 
-    const client = createClient('http://localhost:8080', [setAuthHeader], {});
+    const protectedClient = createClient([setAuthHeader], {});
+    const publicClient = createClient([], {});
 
     return {
-        client,
+        protected: protectedClient,
+        public: publicClient,
     };
 };

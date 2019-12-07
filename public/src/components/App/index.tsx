@@ -17,16 +17,8 @@ export const App: React.FC = () => {
     const router = useRouter();
     const auth = useAuth();
 
-    const [link, setLink] = React.useState('');
-
-    // React.useEffect(() => {
-    //     auth.client.get<{ link: string }>('/api/auth/link')
-    //         .then((res) => res.json())
-    //         .then((data) => setLink(data.link));
-    // });
     return (
         <div className='App'>
-            {link && <a href={link}>google sign in</a>}
         </div>
     );
 };

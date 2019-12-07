@@ -19,10 +19,10 @@ export const logger = (req, res, next) => {
     next();
 };
 
-export const useCors = (req, res, next) => {
+export const useCors = () => {
     if (process.env.NODE_ENV === 'development') {
         return cors();
     } else {
-        return next();
+        return (req, res, next) => next();
     }
 };

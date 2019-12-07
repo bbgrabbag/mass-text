@@ -4,7 +4,7 @@ import { config } from '../../config';
 
 export const generateOAuthLink = (): string => {
     const clientID = config.googleClientID;
-    const redirectUri = `${config.baseURL}/api/auth/callback`;
+    const redirectUri = `${config.baseURL()}/api/auth/callback`;
     const scope = 'profile email openid';
     const responseType = 'code';
 
@@ -21,7 +21,7 @@ export const getAccessToken = async (code: string): Promise<any> => {
                 client_secret: config.googleClientSecret,
                 code,
                 grant_type: 'authorization_code',
-                redirect_uri: 'http://localhost:8080/api/auth/callback',
+                redirect_uri: `${config.baseURL()}/api/auth/callback`,
             }),
             method: 'POST',
         },

@@ -1,4 +1,4 @@
-export const createClient: XHR.CreateClient = (origin, middleware, baseConfig): XHR.IClient => {
+export const createClient: XHR.CreateClient = (middleware, baseConfig, origin = ''): XHR.IClient => {
 
     const request: XHR.Request = async (path, body, options = {}) => {
         const config = middleware.reduce<RequestInit>((a, m) => m(a), {

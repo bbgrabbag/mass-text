@@ -17,11 +17,10 @@ const buildQueryObj = (path: string): Router.IRouteQuery => {
 };
 
 export const useRouteProvider = (): Router.IRouterContextValue => {
-    const BASE_URL = '/';
 
     const initialState: Router.IRoute = {
-        path: BASE_URL,
-        query: {},
+        path: window.location.pathname,
+        query: buildQueryObj(window.location.search),
         state: {},
     };
 

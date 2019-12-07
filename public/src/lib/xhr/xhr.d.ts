@@ -12,7 +12,7 @@ declare namespace XHR {
         put: XHR.Request;
     }
     type Origin = string;
-    type CreateClient = (origin: XHR.Origin, middleware: XHR.Middleware[], config: XHR.BaseConfig) => IClient;
+    type CreateClient = (middleware: XHR.Middleware[], config: XHR.BaseConfig, origin?: XHR.Origin) => IClient;
     type Request = <D = {}>(
         url: RequestInfo,
         body?: RequestInit['body'],
