@@ -2,6 +2,7 @@
 /// <reference types="react" />
 
 declare namespace XHR {
+    type GetToken = () => BearerToken | null;
     interface IResponse<D> extends Response {
         json(): Promise<D>;
     }

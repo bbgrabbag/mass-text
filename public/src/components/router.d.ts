@@ -39,6 +39,7 @@ declare namespace Router {
     interface IRouteProps {
         path: string;
         render: React.FC;
+        exact?: boolean;
     }
 
     type MatchRoute = () => { matches: boolean, params: IRouteParams }

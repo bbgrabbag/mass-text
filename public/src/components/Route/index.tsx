@@ -18,19 +18,32 @@ export const Route: Router.Route = ({ render: C, ...props }) => {
         const routeParams = props.path.split('/')
             .filter((p) => p !== '');
 
+        if (props.exact && globalParams.length !== routeParams.length) {
+            matches = false;
+            params = {};
+        }
         for (let i = 0; i < routeParams.length; i++) {
-
+            // if route and global parameters do not have same length, they can't match in EXACT mode
+            if (props.exact && globalParams.length !== routeParams.length) {
+                matches = false;
+                params = {};
+                break;
+            }
+            // if route path parameter has a value but global path doesnt, then there's no way for a match
             if (globalParams[i] === undefined) {
                 matches = false;
                 params = {};
                 break;
             }
 
+            /* if route path parameter is a variable:
+             create a key/value pair based on the variable name and global parameter value
+            */
             if (routeParams[i].indexOf(':') === 0) {
                 params[routeParams[i].slice(1)] = globalParams[i];
                 break;
             }
-
+            // if parameters are not identical strings, they can't match
             if (routeParams[i] !== globalParams[i]) {
                 matches = false;
                 break;

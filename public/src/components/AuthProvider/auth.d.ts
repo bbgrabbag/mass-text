@@ -2,9 +2,10 @@
 /// <reference types="react" />
 
 declare namespace Auth {
-    type GetToken = () => BearerToken | null;
+    type GoogleOAuthLink = string;
     interface ContextValue {
-        public: XHR.IClient;
-        protected: XHR.IClient;
+        user: Models.IUser | null;
+        googleOAuthLink: GoogleOAuthLink;
+        loadUserProfile: () => Promise
     }
 }
