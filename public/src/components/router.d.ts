@@ -42,6 +42,10 @@ declare namespace Router {
         exact?: boolean;
     }
 
+    interface IProtectedRoute {
+        isAuthenticated: boolean;
+    }
+
     type MatchRoute = () => { matches: boolean, params: IRouteParams }
     type GenerateParams = () => IRouteParams;
     type ChangeRoute = (path: string, state?: IRouteState) => void;

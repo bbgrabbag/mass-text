@@ -43,6 +43,7 @@ export const Route: Router.Route = ({ render: C, ...props }) => {
                 params[routeParams[i].slice(1)] = globalParams[i];
                 break;
             }
+
             // if parameters are not identical strings, they can't match
             if (routeParams[i] !== globalParams[i]) {
                 matches = false;
@@ -65,6 +66,5 @@ export const Route: Router.Route = ({ render: C, ...props }) => {
 
 export const useRoute = (): Router.IRouteContextValue => {
     const value = React.useContext(RouteContext);
-
     return value;
 };
