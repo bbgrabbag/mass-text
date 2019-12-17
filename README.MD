@@ -1,10 +1,7 @@
 # Mass-Text
 
 ## API
-All API requests to `/api` endpoints (besides `/api/auth/`) use a Bearer token:
-| Header        | Value              
-|---------------|---
-| Authorization | Bearer `<api-token>` 
+All API requests to `/api` endpoints (besides `/api/auth/`) use a Bearer token. Remember to set Authorization header to `Bearer <token>`
 
 #### Authentication
 
@@ -32,5 +29,3 @@ Returns user info for authenticated user
     "__v": 0
 }
 ```
-
-
