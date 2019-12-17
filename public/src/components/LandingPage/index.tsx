@@ -20,6 +20,7 @@ const useLanding = () => {
     };
     React.useEffect(initialize, []);
 };
+
 export const LandingPage = () => {
     useLanding();
     return (
